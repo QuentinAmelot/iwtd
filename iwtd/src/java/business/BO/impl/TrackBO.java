@@ -16,6 +16,9 @@ import business.model.Track;
 public class TrackBO implements ITrackBO {
 
     ITrackDAO itrackdao;
+    public void setITrackDAO(ITrackDAO itrackdao) {
+        this.itrackdao = itrackdao;
+    }
 
     @Override
     public void save(Track track) {

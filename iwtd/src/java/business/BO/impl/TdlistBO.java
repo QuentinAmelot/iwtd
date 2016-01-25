@@ -7,7 +7,6 @@ package business.BO.impl;
 
 import business.BO.ITdlistBO;
 import business.DAO.ITdlistDAO;
-import business.DAO.impl.TdlistDAO;
 import business.model.Tdlist;
 
 /**
@@ -15,7 +14,13 @@ import business.model.Tdlist;
  * @author Quentin
  */
 public class TdlistBO implements ITdlistBO {
+
     ITdlistDAO itdlistdao;
+
+    public void setITdlistDAO(ITdlistDAO itdlistdao) {
+        this.itdlistdao = itdlistdao;
+    }
+
     @Override
     public void save(Tdlist list) {
         itdlistdao.save(list);
@@ -35,5 +40,5 @@ public class TdlistBO implements ITdlistBO {
     public Tdlist findByListId(String tdlist_id) {
         return itdlistdao.findByListId(tdlist_id);
     }
-    
+
 }

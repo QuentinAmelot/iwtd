@@ -15,6 +15,9 @@ import business.model.Trackday;
  */
 public class TrackdayBO implements ITrackdayBO {
     ITrackdayDAO itrackdaydao;
+        public void setITrackdayDAO(ITrackdayDAO itrackdaydao) {
+        this.itrackdaydao = itrackdaydao;
+    }
     @Override
     public void save(Trackday trackday) {
         itrackdaydao.save(trackday);

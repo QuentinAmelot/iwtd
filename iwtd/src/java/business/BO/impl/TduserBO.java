@@ -17,6 +17,10 @@ public class TduserBO implements ITduserBO {
 
     ITduserDAO itduserdao;
 
+    public void setITduserDAO(ITduserDAO itduserdao) {
+        this.itduserdao = itduserdao;
+    }
+
     @Override
     public void save(Tduser user) {
         itduserdao.save(user);
