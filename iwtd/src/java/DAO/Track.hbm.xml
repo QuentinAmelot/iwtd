@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 25, 2016 11:48:24 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DAO.Track" table="track" catalog="iwtd" optimistic-lock="version">
+        <id name="trackId" type="java.lang.Integer">
+            <column name="TRACK_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tduser" class="DAO.Tduser" fetch="select">
+            <column name="USER_ID" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="30" not-null="true" />
+        </property>
+        <property name="length" type="long">
+            <column name="LENGTH" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="difficulty" type="string">
+            <column name="DIFFICULTY" length="30" not-null="true" />
+        </property>
+        <property name="category" type="string">
+            <column name="CATEGORY" length="30" not-null="true" />
+        </property>
+        <property name="location" type="string">
+            <column name="LOCATION" length="50" not-null="true" />
+        </property>
+        <property name="lat" type="int">
+            <column name="LAT" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="lon" type="int">
+            <column name="LON" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="url" type="string">
+            <column name="URL" length="50" not-null="true" />
+        </property>
+        <set name="trackdays" table="trackday" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TRACK_ID" not-null="true" />
+            </key>
+            <one-to-many class="DAO.Trackday" />
+        </set>
+    </class>
+</hibernate-mapping>

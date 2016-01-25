@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 25, 2016 11:48:24 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DAO.Tdlist" table="tdlist" catalog="iwtd" optimistic-lock="version">
+        <composite-id name="id" class="DAO.TdlistId">
+            <key-property name="tdId" type="int">
+                <column name="TD_ID" />
+            </key-property>
+            <key-property name="userId" type="int">
+                <column name="USER_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="tduser" class="DAO.Tduser" update="false" insert="false" fetch="select">
+            <column name="USER_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="trackday" class="DAO.Trackday" update="false" insert="false" fetch="select">
+            <column name="TD_ID" not-null="true" />
+        </many-to-one>
+        <property name="car" type="string">
+            <column name="CAR" length="30" not-null="true" />
+        </property>
+        <property name="hp" type="int">
+            <column name="HP" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

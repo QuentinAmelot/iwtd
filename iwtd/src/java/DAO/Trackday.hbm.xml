@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 25, 2016 11:48:24 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DAO.Trackday" table="trackday" catalog="iwtd" optimistic-lock="version">
+        <id name="tdId" type="java.lang.Integer">
+            <column name="TD_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="track" class="DAO.Track" fetch="select">
+            <column name="TRACK_ID" not-null="true" />
+        </many-to-one>
+        <property name="tdDate" type="timestamp">
+            <column name="TD_DATE" length="19" not-null="true" />
+        </property>
+        <property name="level" type="string">
+            <column name="LEVEL" length="30" not-null="true" />
+        </property>
+        <property name="racecat" type="string">
+            <column name="RACECAT" length="30" not-null="true" />
+        </property>
+        <property name="pricing" type="string">
+            <column name="PRICING" length="100" not-null="true" />
+        </property>
+        <property name="maxDrivers" type="int">
+            <column name="MAX_DRIVERS" not-null="true" />
+        </property>
+        <property name="safety" type="string">
+            <column name="SAFETY" length="100" not-null="true" />
+        </property>
+        <property name="tdUrl" type="string">
+            <column name="TD_URL" length="100" not-null="true" />
+        </property>
+        <set name="tdlists" table="tdlist" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TD_ID" not-null="true" />
+            </key>
+            <one-to-many class="DAO.Tdlist" />
+        </set>
+    </class>
+</hibernate-mapping>
