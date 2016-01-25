@@ -6,6 +6,7 @@
 
 import business.BO.ITduserBO;
 import business.model.Tduser;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,6 +21,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author Quentin
  */
 public class DAOTest {
+
 
     public DAOTest() {
     }
@@ -40,6 +42,7 @@ public class DAOTest {
     public void tearDown() {
     }
 
+    @Test
     public void testDAO() {
 
         ApplicationContext appContext
@@ -65,12 +68,10 @@ public class DAOTest {
          */
         //stock2.setStockName("HAIO-1");
         //stockBo.update(stock2);
-
         /**
          * delete *
          */
         //stockBo.delete(stock2);
-
         System.out.println("Done");
     }
 // TODO add test methods here.

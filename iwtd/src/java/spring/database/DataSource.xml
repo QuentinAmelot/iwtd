@@ -19,7 +19,10 @@
         <property name="dataSource">
             <ref bean="MySQLDataSource"/>
         </property>
-        
+        <property name="configLocation">
+            <value>classpath:hibernate.cfg.xml</value>
+        </property>
+
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -30,10 +33,10 @@
              
         <property name="mappingResources">
             <list>
-                <value>business/Tdlist.hbm.xml</value>
-                <value>business/Track.hbm.xml</value>
-                <value>business/Trackday.hbm.xml</value>
-                <value>business/Tduser.hbm.xml</value>
+                <value>business.model/Tdlist.hbm.xml</value>
+                <value>business.model/Track.hbm.xml</value>
+                <value>business.model/Trackday.hbm.xml</value>
+                <value>business.model/Tduser.hbm.xml</value>
             </list>
         </property> 
     </bean>
