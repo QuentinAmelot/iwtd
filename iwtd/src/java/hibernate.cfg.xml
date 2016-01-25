@@ -6,9 +6,6 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/iwtd?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="business/Trackday.hbm.xml"/>
-    <mapping resource="business/Tdlist.hbm.xml"/>
-    <mapping resource="business/Track.hbm.xml"/>
-    <mapping resource="business/Tduser.hbm.xml"/>
+
   </session-factory>
 </hibernate-configuration>

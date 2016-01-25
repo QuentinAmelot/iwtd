@@ -4,20 +4,24 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
-    <bean id="MySQLDatasource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName">
-            <value>com.mysql.jdbc.Driver</value>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>/spring/database/database.properties</value>
         </property>
-        <property name="url">
-            <value>jdbc:mysql://localhost:3306/iwtd</value>
-        </property>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
     </bean>
 
     <!-- Hibernate session factory -->
     <bean id="sessionFactory" 
           class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> 
         <property name="dataSource">
-            <ref bean="MySQLDataSource"/>
+            <ref bean="dataSource"/>
         </property>
         <property name="configLocation">
             <value>classpath:hibernate.cfg.xml</value>
@@ -33,10 +37,10 @@
              
         <property name="mappingResources">
             <list>
-                <value>business.model/Tdlist.hbm.xml</value>
-                <value>business.model/Track.hbm.xml</value>
-                <value>business.model/Trackday.hbm.xml</value>
-                <value>business.model/Tduser.hbm.xml</value>
+                <value>business/model/Tdlist.hbm.xml</value>
+                <value>business/model/Track.hbm.xml</value>
+                <value>business/model/Trackday.hbm.xml</value>
+                <value>business/model/Tduser.hbm.xml</value>
             </list>
         </property> 
     </bean>

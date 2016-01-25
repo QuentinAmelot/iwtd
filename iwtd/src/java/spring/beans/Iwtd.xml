@@ -1,17 +1,35 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<!-- Stock business object -->
-   <bean id="stockBo" class="com.mkyong.stock.bo.impl.StockBoImpl" >
-   		<property name="stockDao" ref="stockDao" />
-   </bean>
- 
-   <!-- Stock Data Access Object -->
-   <bean id="stockDao" class="com.mkyong.stock.dao.impl.StockDaoImpl" >
-   		<property name="sessionFactory" ref="sessionFactory"></property>
-   </bean>
-   
+    <!-- Stock business object -->
+    <bean id="ITduserBO" class="business.BO.impl.TduserBO" >
+        <property name="TduserDAO" ref="TduserDAO" />
+    </bean>
+    <bean id="ITdlistBO" class="business.BO.impl.TdlistBO" >
+        <property name="TdlistDAO" ref="TdlistDAO" />
+    </bean>   
+    <bean id="ITrackBO" class="business.BO.impl.TrackBO" >
+        <property name="TrackDAO" ref="TrackDAO" />
+    </bean>   
+    <bean id="ITrackdayBO" class="business.BO.impl.TrackdayBO" >
+        <property name="TrackdayDAO" ref="TrackdayDAO" />
+    </bean>
+    
+    
+    <!-- Stock Data Access Object -->
+    <bean id="ITduserDAO" class="business.DAO.impl.TduserDAO" >
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="ITdlistDAO" class="business.DAO.impl.TdlistDAO" >
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="ITrackDAO" class="business.DAO.impl.TrackDAO" >
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="ITrackdayDAO" class="business.DAO.impl.TrackdayDAO" >
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
    		
 </beans>
