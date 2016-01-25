@@ -2,12 +2,12 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jan 25, 2016 2:05:31 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="iwtd" name="business.Track" optimistic-lock="version" table="track">
+  <class catalog="iwtd" name="business.model.Track" optimistic-lock="version" table="track">
     <id name="trackId" type="java.lang.Integer">
       <column name="TRACK_ID"/>
       <generator class="identity"/>
     </id>
-    <many-to-one class="business.Tduser" fetch="select" name="tduser">
+    <many-to-one class="business.model.Tduser" fetch="select" name="tduser">
       <column name="USER_ID" not-null="true"/>
     </many-to-one>
     <property name="name" type="string">
@@ -38,7 +38,7 @@
       <key>
         <column name="TRACK_ID" not-null="true"/>
       </key>
-      <one-to-many class="business.Trackday"/>
+      <one-to-many class="business.model.Trackday"/>
     </set>
   </class>
 </hibernate-mapping>

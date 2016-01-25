@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jan 25, 2016 2:05:31 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="iwtd" name="business.Tduser" optimistic-lock="version" table="tduser">
+  <class catalog="iwtd" name="business.model.Tduser" optimistic-lock="version" table="tduser">
     <id name="userId" type="java.lang.Integer">
       <column name="USER_ID"/>
       <generator class="identity"/>
@@ -29,13 +29,13 @@
       <key>
         <column name="USER_ID" not-null="true"/>
       </key>
-      <one-to-many class="business.Track"/>
+      <one-to-many class="business.model.Track"/>
     </set>
     <set fetch="select" inverse="true" lazy="true" name="tdlists" table="tdlist">
       <key>
         <column name="USER_ID" not-null="true"/>
       </key>
-      <one-to-many class="business.Tdlist"/>
+      <one-to-many class="business.model.Tdlist"/>
     </set>
   </class>
 </hibernate-mapping>

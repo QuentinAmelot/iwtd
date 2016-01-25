@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jan 25, 2016 2:05:31 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="iwtd" name="business.Tdlist" optimistic-lock="version" table="tdlist">
-    <composite-id class="business.TdlistId" name="id">
+  <class catalog="iwtd" name="business.model.Tdlist" optimistic-lock="version" table="tdlist">
+    <composite-id class="business.model.TdlistId" name="id">
       <key-property name="tdId" type="int">
         <column name="TD_ID"/>
       </key-property>
@@ -11,10 +11,10 @@
         <column name="USER_ID"/>
       </key-property>
     </composite-id>
-    <many-to-one class="business.Tduser" fetch="select" insert="false" name="tduser" update="false">
+    <many-to-one class="business.model.Tduser" fetch="select" insert="false" name="tduser" update="false">
       <column name="USER_ID" not-null="true"/>
     </many-to-one>
-    <many-to-one class="business.Trackday" fetch="select" insert="false" name="trackday" update="false">
+    <many-to-one class="business.model.Trackday" fetch="select" insert="false" name="trackday" update="false">
       <column name="TD_ID" not-null="true"/>
     </many-to-one>
     <property name="car" type="string">
