@@ -1,5 +1,5 @@
-package DAO;
-// Generated Jan 25, 2016 11:48:23 AM by Hibernate Tools 4.3.1
+package business;
+// Generated Jan 25, 2016 2:05:30 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -18,8 +18,8 @@ public class Track  implements java.io.Serializable {
      private String difficulty;
      private String category;
      private String location;
-     private int lat;
-     private int lon;
+     private float lat;
+     private float lon;
      private String url;
      private Set trackdays = new HashSet(0);
 
@@ -27,7 +27,7 @@ public class Track  implements java.io.Serializable {
     }
 
 	
-    public Track(Tduser tduser, String name, long length, String difficulty, String category, String location, int lat, int lon, String url) {
+    public Track(Tduser tduser, String name, long length, String difficulty, String category, String location, float lat, float lon, String url) {
         this.tduser = tduser;
         this.name = name;
         this.length = length;
@@ -38,7 +38,7 @@ public class Track  implements java.io.Serializable {
         this.lon = lon;
         this.url = url;
     }
-    public Track(Tduser tduser, String name, long length, String difficulty, String category, String location, int lat, int lon, String url, Set trackdays) {
+    public Track(Tduser tduser, String name, long length, String difficulty, String category, String location, float lat, float lon, String url, Set trackdays) {
        this.tduser = tduser;
        this.name = name;
        this.length = length;
@@ -100,18 +100,18 @@ public class Track  implements java.io.Serializable {
     public void setLocation(String location) {
         this.location = location;
     }
-    public int getLat() {
+    public float getLat() {
         return this.lat;
     }
     
-    public void setLat(int lat) {
+    public void setLat(float lat) {
         this.lat = lat;
     }
-    public int getLon() {
+    public float getLon() {
         return this.lon;
     }
     
-    public void setLon(int lon) {
+    public void setLon(float lon) {
         this.lon = lon;
     }
     public String getUrl() {

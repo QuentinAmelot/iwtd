@@ -1,5 +1,5 @@
-package DAO;
-// Generated Jan 25, 2016 11:48:23 AM by Hibernate Tools 4.3.1
+package business;
+// Generated Jan 25, 2016 2:05:30 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,6 +17,7 @@ public class Tduser  implements java.io.Serializable {
      private String firstname;
      private String lastname;
      private String email;
+     private boolean userActivated;
      private Set tracks = new HashSet(0);
      private Set tdlists = new HashSet(0);
 
@@ -24,19 +25,21 @@ public class Tduser  implements java.io.Serializable {
     }
 
 	
-    public Tduser(String login, String password, String firstname, String lastname, String email) {
+    public Tduser(String login, String password, String firstname, String lastname, String email, boolean userActivated) {
         this.login = login;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
+        this.userActivated = userActivated;
     }
-    public Tduser(String login, String password, String firstname, String lastname, String email, Set tracks, Set tdlists) {
+    public Tduser(String login, String password, String firstname, String lastname, String email, boolean userActivated, Set tracks, Set tdlists) {
        this.login = login;
        this.password = password;
        this.firstname = firstname;
        this.lastname = lastname;
        this.email = email;
+       this.userActivated = userActivated;
        this.tracks = tracks;
        this.tdlists = tdlists;
     }
@@ -82,6 +85,13 @@ public class Tduser  implements java.io.Serializable {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+    public boolean isUserActivated() {
+        return this.userActivated;
+    }
+    
+    public void setUserActivated(boolean userActivated) {
+        this.userActivated = userActivated;
     }
     public Set getTracks() {
         return this.tracks;

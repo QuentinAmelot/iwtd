@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 25, 2016 2:05:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="iwtd" name="business.Tduser" optimistic-lock="version" table="tduser">
+    <id name="userId" type="java.lang.Integer">
+      <column name="USER_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="login" type="string">
+      <column length="30" name="LOGIN" not-null="true"/>
+    </property>
+    <property name="password" type="string">
+      <column length="30" name="PASSWORD" not-null="true"/>
+    </property>
+    <property name="firstname" type="string">
+      <column length="30" name="FIRSTNAME" not-null="true"/>
+    </property>
+    <property name="lastname" type="string">
+      <column length="30" name="LASTNAME" not-null="true"/>
+    </property>
+    <property name="email" type="string">
+      <column length="60" name="EMAIL" not-null="true"/>
+    </property>
+    <property name="userActivated" type="boolean">
+      <column name="USER_ACTIVATED" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tracks" table="track">
+      <key>
+        <column name="USER_ID" not-null="true"/>
+      </key>
+      <one-to-many class="business.Track"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tdlists" table="tdlist">
+      <key>
+        <column name="USER_ID" not-null="true"/>
+      </key>
+      <one-to-many class="business.Tdlist"/>
+    </set>
+  </class>
+</hibernate-mapping>

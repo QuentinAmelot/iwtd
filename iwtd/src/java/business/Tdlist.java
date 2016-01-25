@@ -1,5 +1,5 @@
-package DAO;
-// Generated Jan 25, 2016 11:48:23 AM by Hibernate Tools 4.3.1
+package business;
+// Generated Jan 25, 2016 2:05:30 PM by Hibernate Tools 4.3.1
 
 
 
