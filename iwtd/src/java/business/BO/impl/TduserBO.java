@@ -34,7 +34,7 @@ public class TduserBO implements ITduserBO {
 
     @Override
     public Tduser findByTrackCode(String User_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return itduserdao.findByTrackCode(User_id);
     }
 
 }

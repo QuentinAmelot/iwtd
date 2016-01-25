@@ -34,7 +34,7 @@ public class TrackBO implements ITrackBO {
 
     @Override
     public Track findByTrackCode(String trackID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return itrackdao.findByTrackCode(trackID);
     }
 
 }

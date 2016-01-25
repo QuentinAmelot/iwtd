@@ -3,22 +3,22 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-    <!-- Stock business object -->
+    <!-- Business object -->
     <bean id="ITduserBO" class="business.BO.impl.TduserBO" >
-        <property name="TduserDAO" ref="TduserDAO" />
+        <property name="ITduserDAO" ref="ITduserDAO" />
     </bean>
     <bean id="ITdlistBO" class="business.BO.impl.TdlistBO" >
-        <property name="TdlistDAO" ref="TdlistDAO" />
+        <property name="ITdlistDAO" ref="ITdlistDAO" />
     </bean>   
     <bean id="ITrackBO" class="business.BO.impl.TrackBO" >
-        <property name="TrackDAO" ref="TrackDAO" />
+        <property name="ITrackDAO" ref="ITrackDAO" />
     </bean>   
     <bean id="ITrackdayBO" class="business.BO.impl.TrackdayBO" >
-        <property name="TrackdayDAO" ref="TrackdayDAO" />
+        <property name="ITrackdayDAO" ref="ITrackdayDAO" />
     </bean>
     
     
-    <!-- Stock Data Access Object -->
+    <!-- Data Access Object -->
     <bean id="ITduserDAO" class="business.DAO.impl.TduserDAO" >
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>

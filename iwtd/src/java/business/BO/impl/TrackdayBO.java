@@ -32,7 +32,7 @@ public class TrackdayBO implements ITrackdayBO {
 
     @Override
     public Trackday findByTrackCode(String trackday_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return itrackdaydao.findByTrackCode(trackday_id);
     }
     
 }

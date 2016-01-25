@@ -33,7 +33,7 @@ public class TdlistBO implements ITdlistBO {
 
     @Override
     public Tdlist findByListId(String tdlist_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return itdlistdao.findByListId(tdlist_id);
     }
     
 }
