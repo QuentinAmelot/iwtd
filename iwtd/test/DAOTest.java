@@ -54,14 +54,14 @@ public class DAOTest {
         /**
          * insert *
          */
-        Tduser user = new Tduser("test", "test", "test", "test", "test", true);
-        userBO.save(user);
+        /*Tduser user = new Tduser("test", "test", "test", "test", "test", true);
+        userBO.save(user);*/
 
         /**
          * select *
          */
         Tduser user2 = userBO.findByTrackCode("1");
-        System.out.println(user2);
+        System.out.println(user2.getFirstname());
 
         /**
          * update *
