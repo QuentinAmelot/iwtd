@@ -11,5 +11,7 @@ public interface ITduserDAO {
 	void delete(Tduser tduser);
 	
 	Tduser findByTrackCode(String user_id);
+        
+        Tduser findByLogin(String user_login);
 
 }
