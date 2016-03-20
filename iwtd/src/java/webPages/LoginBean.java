@@ -109,7 +109,7 @@ public class LoginBean implements Serializable {
         }
     }
 
-    public void login() {
+    public String login() {
         System.out.println(llogin + lpw);
         ApplicationContext appContext
                 = new ClassPathXmlApplicationContext("classpath*:spring/config/BeanIwtd.xml");
@@ -122,8 +122,10 @@ public class LoginBean implements Serializable {
             if (this.lpw.equals(luser.getPassword())) {
                 log.info("Valid Password");
                 log.info("User redirected to search page");
+                return "bonjour";
 
             }
         }
+        return "index";
     }
 }
