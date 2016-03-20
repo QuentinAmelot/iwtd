@@ -7,6 +7,7 @@ package business.DAO.impl;
 
 import business.DAO.ITrackdayDAO;
 import business.model.Trackday;
+import java.util.Date;
 import java.util.List;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -37,4 +38,9 @@ public class TrackdayDAO extends HibernateDaoSupport implements ITrackdayDAO {
         return (Trackday) list.get(0);
     }
 
+    @Override
+    public List<Trackday> findByRequest(Date from, Date to) {
+        List list = getHibernateTemplate().find("from Trackday");
+        return list;
+    }
 }

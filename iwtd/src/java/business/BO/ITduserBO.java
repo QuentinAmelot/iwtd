@@ -11,5 +11,5 @@ public interface ITduserBO {
 	void delete(Tduser user);
 	
 	Tduser findByTrackCode(String User_id);
-
+        Tduser findByLogin(String user_login); 
 }

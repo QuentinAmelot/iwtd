@@ -6,16 +6,18 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class LoginBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -26,7 +28,13 @@ public class LoginBean implements Serializable {
     private String login;
     private String lpw;
     private String llogin;
+    private Tduser luser;
+    static Logger log = Logger.getLogger(LoginBean.class.getName());
 
+    public LoginBean(){
+        super();
+        
+    }
     public String getLpw() {
         return lpw;
     }
@@ -89,22 +97,33 @@ public class LoginBean implements Serializable {
 
         ITduserBO userBO;
         userBO = (ITduserBO) appContext.getBean("ITduserBO");
-        if (this.firstname != null /*&& this.lastname != null && this.login != null*/ && this.email!=null) {
-            
-            System.out.println(firstname+lastname+userBO.findByTrackCode("1").getFirstname()+"chaussette");
+        if (this.firstname != null && this.lastname != null && this.login != null && this.email != null && this.pw != null) {
+            if (userBO.findByLogin(login) == null) {
+                log.info(firstname + lastname + "registered");
+                Tduser u = new Tduser(login, pw, firstname, lastname, email, true);
+                log.info(u.getLogin() + "has been registered");
+                userBO.save(u);
+            } else {
+                log.info("Already registed");
+            }
         }
     }
-    
+
     public void login() {
-        System.out.println(llogin+lpw);
+        System.out.println(llogin + lpw);
         ApplicationContext appContext
                 = new ClassPathXmlApplicationContext("classpath*:spring/config/BeanIwtd.xml");
 
         ITduserBO userBO;
         userBO = (ITduserBO) appContext.getBean("ITduserBO");
-        if (this.llogin != null && this.lpw!=null) {
-            
-            System.out.println("chaussette");
+        if (this.llogin != null && this.lpw != null) {
+            luser = userBO.findByLogin(llogin);
+            log.info("Hello Mr " + luser.getLastname() + luser.getPassword());
+            if (this.lpw.equals(luser.getPassword())) {
+                log.info("Valid Password");
+                log.info("User redirected to search page");
+
+            }
         }
     }
 }

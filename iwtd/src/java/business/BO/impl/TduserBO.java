@@ -40,5 +40,8 @@ public class TduserBO implements ITduserBO {
     public Tduser findByTrackCode(String User_id) {
         return itduserdao.findByTrackCode(User_id);
     }
+    public Tduser findByLogin(String user_login) {
+        return itduserdao.findByLogin(user_login);
+    }
 
 }

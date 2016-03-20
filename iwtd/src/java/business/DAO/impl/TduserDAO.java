@@ -36,10 +36,16 @@ public class TduserDAO extends HibernateDaoSupport implements ITduserDAO {
         List list = getHibernateTemplate().find("from Tduser where user_id = ?", user_id);
         return (Tduser) list.get(0);
     }
-        @Override
+
+    @Override
     public Tduser findByLogin(String user_login) {
-        List list = getHibernateTemplate().find("from Tduser where login = '?'", user_login);
-        return (Tduser) list.get(0);
+        List list = getHibernateTemplate().find("from Tduser where login = ?", user_login);
+
+        if (list.isEmpty()) {
+            return null;
+        } else {
+            return (Tduser) list.get(0);
+        }
     }
-    
 }
+

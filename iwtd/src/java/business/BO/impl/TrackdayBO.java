@@ -8,6 +8,8 @@ package business.BO.impl;
 import business.BO.ITrackdayBO;
 import business.DAO.ITrackdayDAO;
 import business.model.Trackday;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -36,6 +38,11 @@ public class TrackdayBO implements ITrackdayBO {
     @Override
     public Trackday findByTrackCode(String trackday_id) {
         return itrackdaydao.findByTrackCode(trackday_id);
+    }
+    
+    @Override
+    public List<Trackday> findByRequest(Date from, Date to) {
+        return itrackdaydao.findByRequest(from, to);
     }
     
 }
